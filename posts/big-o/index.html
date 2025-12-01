@@ -21,8 +21,9 @@
         </header>
 
         <section id="introduction">
-            <p>Big O notation is like a "speed limit" sign for code. It tells you how fast an algorithm will slow down
-                as you give it more work to do. It doesn't measure seconds; it measures <strong>growth</strong>.</p>
+            <p>Big O notation is a way of describing the performance of a function without using time. Rather than
+                timing a function from start to finish, Big O describes how the time grows as the input size increases.
+                It is used to help understand how programs will perform across a range of inputs.</p>
         </section>
 
         <section id="linear-time">
@@ -50,7 +51,7 @@
         <section id="constant-time">
             <h2>O(1) - Constant Time</h2>
             <p><strong>Analogy:</strong> Picking the first book off a shelf. It doesn't matter if there are 10 books or
-                10,000 books on the shelf; grabbing the first one takes the same amount of time.</p>
+                10,000 books on the shelf, grabbing the first one takes the same amount of time.</p>
             <p>In code, this is accessing an array by index or doing a simple math operation.</p>
 
             <pre><code class="language-python">def get_first_item(items):
