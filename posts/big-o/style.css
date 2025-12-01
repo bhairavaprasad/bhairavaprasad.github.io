@@ -1,0 +1,83 @@
+.post-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #8b949e;
+}
+
+.visualization-container {
+    background: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: 100%;
+    justify-content: center;
+}
+
+canvas {
+    background: #000;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    max-width: 100%;
+}
+
+.stats {
+    margin-top: 1rem;
+    font-family: var(--font-mono);
+    color: var(--accent-color);
+}
+
+button {
+    background: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #4094e8;
+}
+
+input[type="range"] {
+    accent-color: var(--accent-color);
+}
+
+/* Code Block Styling */
+pre {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    color: #e6edf3;
+}
+
+/* Simple Syntax Highlighting for Python */
+.language-python {
+    color: #e6edf3;
+}

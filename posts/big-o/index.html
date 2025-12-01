@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big O Notation - A Visual Guide</title>
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="container" style="padding-top: 1rem; padding-bottom: 0;">
+        <a href="../../index.html">← Back to Home</a>
+    </nav>
+
+    <main class="container">
+        <header class="post-header">
+            <h1>Big O Notation</h1>
+            <p class="subtitle">A visual guide to understanding algorithm efficiency.</p>
+        </header>
+
+        <section id="introduction">
+            <p>Big O notation is like a "speed limit" sign for code. It tells you how fast an algorithm will slow down
+                as you give it more work to do. It doesn't measure seconds; it measures <strong>growth</strong>.</p>
+        </section>
+
+        <section id="linear-time">
+            <h2>O(n) - Linear Time</h2>
+            <p><strong>Analogy:</strong> Reading a book page by page. If the book has 10 pages, it takes some time. If
+                it has 100 pages, it takes 10 times as long.</p>
+            <p>In code, this usually happens with a simple loop. As the input <code>n</code> grows, the time taken grows
+                linearly.</p>
+
+            <pre><code class="language-python">def print_all_items(items):
+    for item in items:
+        print(item)</code></pre>
+
+            <div class="visualization-container" id="viz-linear">
+                <div class="controls">
+                    <button id="btn-linear-run">Run Simulation</button>
+                    <label>Input Size (n): <span id="val-linear-n">10</span></label>
+                    <input type="range" id="slider-linear-n" min="10" max="50" value="10">
+                </div>
+                <canvas id="canvas-linear" width="600" height="200"></canvas>
+                <div class="stats">Operations: <span id="stats-linear">0</span></div>
+            </div>
+        </section>
+
+        <section id="constant-time">
+            <h2>O(1) - Constant Time</h2>
+            <p><strong>Analogy:</strong> Picking the first book off a shelf. It doesn't matter if there are 10 books or
+                10,000 books on the shelf; grabbing the first one takes the same amount of time.</p>
+            <p>In code, this is accessing an array by index or doing a simple math operation.</p>
+
+            <pre><code class="language-python">def get_first_item(items):
+    return items[0]</code></pre>
+
+            <div class="visualization-container" id="viz-constant">
+                <div class="controls">
+                    <button id="btn-constant-run">Run Simulation</button>
+                    <label>Input Size (n): <span id="val-constant-n">10</span></label>
+                    <input type="range" id="slider-constant-n" min="10" max="1000" value="10">
+                </div>
+                <canvas id="canvas-constant" width="600" height="100"></canvas>
+                <div class="stats">Operations: <span id="stats-constant">0</span></div>
+            </div>
+        </section>
+
+        <section id="quadratic-time">
+            <h2>O(n²) - Quadratic Time</h2>
+            <p><strong>Analogy:</strong> Imagine a square grid of size <code>n</code> by <code>n</code>. To fill every
+                cell in the grid, you have to visit <code>n</code> rows and <code>n</code> columns. That's
+                <code>n * n</code> operations.
+            </p>
+            <p>In code, this happens with nested loops. For every item in the list, we loop through the entire list
+                again. Watch how the grid fills up below. As <code>n</code> grows, the area of the square grows much
+                faster than the side length.</p>
+
+            <pre><code class="language-python">def print_grid(n):
+    for row in range(n):
+        for col in range(n):
+            print(row, col)</code></pre>
+
+            <div class="visualization-container" id="viz-quadratic">
+                <div class="controls">
+                    <button id="btn-quadratic-run">Run Simulation</button>
+                    <label>Grid Size (n): <span id="val-quadratic-n">5</span></label>
+                    <input type="range" id="slider-quadratic-n" min="5" max="15" value="5">
+                </div>
+                <!-- Increased height for square aspect ratio -->
+                <canvas id="canvas-quadratic" width="300" height="300"></canvas>
+                <div class="stats">Operations: <span id="stats-quadratic">0</span> / <span
+                        id="total-quadratic">25</span></div>
+            </div>
+        </section>
+
+        <section id="logarithmic-time">
+            <h2>O(log n) - Logarithmic Time</h2>
+            <p><strong>Analogy:</strong> The "Guess Who" game or looking up a word in a dictionary. You open the book to
+                the middle. If the word you're looking for is alphabetically after, you can completely <strong>tear out
+                    and throw away</strong> the first half of the book.</p>
+            <p>You keep cutting the problem in half. Even with a dictionary of 1 million words, you only need to cut it
+                in half about 20 times to find any word.</p>
+
+            <pre><code class="language-python">def binary_search(arr, target):
+    low = 0
+    high = len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1  # Discard left half
+        else:
+            high = mid - 1 # Discard right half
+    return -1</code></pre>
+
+            <div class="visualization-container" id="viz-log">
+                <div class="controls">
+                    <button id="btn-log-run">Run Binary Search</button>
+                    <label>Input Size (n): <span id="val-log-n">16</span></label>
+                    <input type="range" id="slider-log-n" min="16" max="64" step="16" value="16">
+                </div>
+                <canvas id="canvas-log" width="600" height="150"></canvas>
+                <div class="stats">Operations: <span id="stats-log">0</span></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
